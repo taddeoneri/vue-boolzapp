@@ -43,7 +43,7 @@
                       </div>
                 </div>
                 <div class="box-left-chat">
-                    <div v-for="(contact, index) in contacts" class="my-card d-flex justify-content-between px-4 py-2">
+                    <div @click="selectChat(index)" v-for="(contact, index) in contacts" class="my-card d-flex justify-content-between px-4 py-2">
                         <div class="d-flex">
                             <div class="box-image">
                                 <img :src="contact.avatar" :alt="contact.name">
@@ -63,10 +63,10 @@
                 <div class="box-right-user d-flex align-items-center justify-content-between p-2">
                     <div class="d-flex align-items-center">
                         <div class="box-image">
-                            <img src="./img/avatar_io.jpg" alt="Me">
+                            <img :src="contacts[activeIndex].avatar" :alt="contacts[activeIndex].name">
                         </div>
                         <div class="text px-3">
-                            <p>Sofia</p>
+                            <p>{{contacts[activeIndex].name}}</p>
                             <p class="text-decoration-none">Ultimo accesso oggi alle 12:00</p>
                         </div>
                     </div>
@@ -78,16 +78,12 @@
                 </div>
                 <div class="box-right-message">
                     <div class="container-message">
-                        <div class="my d-flex justify-content-end">
-                            <div class="my-message d-flex justify-content-end">
+                        <div v-for="(contact, index) in contacts" :class="contact.messages.status === 'sent' ? 'd-flex justify-content-end' : ''">
+                            <div :class="contact.messages.status === 'sent' ? 'my-message' : 'message-user'">
 
                             </div>
                         </div>
-                        <div class="user">
-                            <div class="message-user">
-                                
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
                 <div class="box-right-input d-flex align-items-center justify-content-between">

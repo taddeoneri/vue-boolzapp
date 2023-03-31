@@ -89,6 +89,7 @@ p{
 }
 .my-card{
     border-top: 1px solid #f0f0f0;
+    cursor: pointer;
 }
 .container-message{
     width: 80%;
@@ -102,7 +103,7 @@ p{
     height: 80px;
     border: 1px solid red;
     border-radius: 15px;
-    margin: 10px 0px;
+    margin: 5px 0px;
 }
 .message-user{
     background-color: #ffffff;
