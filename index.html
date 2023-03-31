@@ -13,37 +13,82 @@
 
     <div id="app">
         <div class="box d-flex">
-            <div class="box-left bg-secondary">
-                <div class="box-left-me d-flex align-items-center justify-content-between-">
-                    <div>
-                        <div class="box-image d-flex">
-                        <img src="./img/avatar_io.jpg" alt="Me">
+            <div class="box-left">
+                <div class="box-left-me d-flex align-items-center justify-content-between p-2">
+                    <div class="d-flex align-items-center">
+                        <div class="box-image">
+                            <img src="./img/avatar_io.jpg" alt="Me">
                         </div>
-                        <p class="my-0 px-2">Sofia</p>
+                        <p class="px-2">Sofia</p>
                     </div>
                     <div class="items">
-                        
+                        <i class="fa-solid fa-circle-notch"></i>
+                        <i class="fa-solid fa-message"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
                     </div>  
                 </div>
-                <div class="box-left-notice">
-
+                <div class="box-left-notice d-flex align-items-center p-3">
+                    <div class="box-image d-flex justify-content-center align-items-center">
+                        <i class="fa-solid fa-bell-slash"></i>
+                    </div>
+                    <div class="text px-3">
+                        <p>Ricevi notifiche di nuovi messaggi</p>
+                        <p>Arriva notifiche desktop</p>
+                    </div>
                 </div>
-                <div class="box-left-search">
-
+                <div class="box-left-search d-flex align-items-center">
+                    <div class="input-group p-1">
+                        <span class="input-group-text bg-light" id="basic-addon1"><i class="fa-solid fa-magnifying-glass"></i></span>
+                        <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat" aria-label="Username" aria-describedby="basic-addon1">
+                      </div>
                 </div>
                 <div class="box-left-chat">
-                    
+                    <div v-for="(contact, index) in contacts" class="my-card d-flex justify-content-between px-4 py-2">
+                        <div class="d-flex">
+                            <div class="box-image">
+                                <img :src="contact.avatar" :alt="contact.name">
+                            </div>
+                            <div class="text px-3">
+                                <h5 class="m-0">{{contact.name}}</h5>
+                                <p class="text-decoration-none">Ultimo messaggio inviato</p>
+                            </div>
+                        </div>
+                        <div class="items">
+                            <p>12:00</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="box-right bg-primary">
-                <div class="box-right-user">
-
+            <div class="box-right">
+                <div class="box-right-user d-flex align-items-center justify-content-between p-2">
+                    <div class="d-flex align-items-center">
+                        <div class="box-image">
+                            <img src="./img/avatar_io.jpg" alt="Me">
+                        </div>
+                        <div class="text px-3">
+                            <p>Sofia</p>
+                            <p class="text-decoration-none">Ultimo accesso oggi alle 12:00</p>
+                        </div>
+                    </div>
+                    <div class="items">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <i class="fa-solid fa-paperclip"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>  
                 </div>
                 <div class="box-right-message">
-
+                    
                 </div>
-                <div class="box-right-input">
-
+                <div class="box-right-input d-flex align-items-center justify-content-between">
+                    <div class="input-item d-flex align-items-center justify-content-center">
+                        <i class="fa-regular fa-face-smile"></i>
+                    </div>
+                    <div class="input-message d-flex align-items-center">
+                        <input type="text" class="form-control" id="message" placeholder="Scrivi un messaggio">
+                    </div>
+                    <div class="input-item d-flex align-items-center justify-content-center">
+                        <i class="fa-solid fa-microphone"></i>
+                    </div>
                 </div>
             </div>
         </div>

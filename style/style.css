@@ -12,25 +12,28 @@
 }
 .box-left-me, .box-right-user{
     height: 70px;
-    border: 1px solid red;
+    background-color: #eaeaea;
 }
 .box-left-notice, .box-right-input{
     height: 80px;
-    border: 1px solid red;
+    background-color: #8edafc;
+}
+.box-right-input{
+    background-color: #f3eeea;
 }
 .box-left-search{
     height: 50px;
-    border: 1px solid red;
+    background-color: #f9f9f9;
 }
 .box-left-chat{
     height: calc(100% - 200px);
     overflow-y: auto;
-    border: 1px solid red;
+    background-color: #ffffff;
 }
 .box-right-message{
     height: calc(100% - 150px);
     overflow-y: auto;
-    border: 1px solid red;
+    background-image: url('../img/mine.jpg');
 }
 .box-image{
     width: 50px;
@@ -42,4 +45,48 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+.items i{
+    color: #b1b1b1;
+    font-size: 1.5rem;
+    padding: 0px 10px;
+}
+.box-image i{
+    color: #8edafc;
+    font-size: 1.5rem;
+}
+.box-left-notice .box-image{
+    background-color: #ffffff;
+}
+p{
+    margin: 0;
+}
+.text p:last-child{
+    text-decoration: underline;
+    color: #818181;
+    font-size: 0.9rem;
+}
+.input-item{
+    width: 10%;
+}
+.input-message{
+    width: 80%;
+}
+.input-message input{
+    height: 55px;
+}
+.input-item i{
+    font-size: 1.7rem;
+    color: #6b7376;
+}
+.box-left-chat .text p, .items p{
+    color: #bababa;
+    font-size: 0.8rem;
+}
+.box-left-chat .box-image{
+    width: 60px;
+    height: 60px;
+}
+.my-card{
+    border-top: 1px solid #f0f0f0;
 }
