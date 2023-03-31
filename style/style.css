@@ -90,3 +90,23 @@ p{
 .my-card{
     border-top: 1px solid #f0f0f0;
 }
+.container-message{
+    width: 80%;
+    border: 1px solid red;
+    height: 100%;
+    margin: 15px auto;
+    margin-top: 55px;
+}
+.message-user, .my-message{
+    width: 40%;
+    height: 80px;
+    border: 1px solid red;
+    border-radius: 15px;
+    margin: 10px 0px;
+}
+.message-user{
+    background-color: #ffffff;
+}
+.my-message{
+    background-color: #d5f9ba;
+}
