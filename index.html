@@ -77,7 +77,7 @@
                     </div>  
                 </div>
                 <div class="box-right-message">
-                    <div v-for="(contact, index) in contacts" :key="contact.id" :class="activeIndex === index ? 'container-message' : ''">
+                    <div v-for="(contact, index) in contacts" :key="contact.id" :class="activeIndex === index ? 'container-message' : 'd-none'">
                         <div v-for="message in contact.messages" :class="message.status === 'sent' ? 'd-flex justify-content-end' : ''">
                             <div v-if="activeIndex === index" :class="message.status === 'sent' ? 'my-message' : 'message-user'" class="d-flex align-items-center">
                                 {{message.message}}
