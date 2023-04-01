@@ -100,10 +100,10 @@ p{
 }
 .message-user, .my-message{
     width: 40%;
-    height: 80px;
     border: 1px solid red;
-    border-radius: 15px;
+    border-radius: 10px;
     margin: 5px 0px;
+    padding: 13px;
 }
 .message-user{
     background-color: #ffffff;
