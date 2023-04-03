@@ -177,10 +177,41 @@ createApp({
                 }
             ],
             activeIndex: 0,
-            newMessage: ''
+            newMessage: '',
+            filteredArray: [],
+            messagesUser: [
+                {
+                    message: 'Va bene',
+                    status: 'received'
+                },
+                {
+                    message: 'Adesso non sono disponibile',
+                    status: 'received'
+                },
+                {
+                    message: 'Ci vediamo presto',
+                    status: 'received'
+                },
+                {
+                    message: 'Buonanotte',
+                    status: 'received'
+                },
+                {
+                    message: 'Salutami tuo fratello',
+                    status: 'received'
+                },
+                {
+                    message: 'Fanstastico',
+                    status: 'received'
+                }
+            ]
+            
         }
     },
     methods: {
+        getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        },
         selectChat(index){
             this.activeIndex = index;
         },
@@ -192,12 +223,25 @@ createApp({
             this.contacts[activeIndex].messages.push(newMessage);
             this.newMex = '';
             const newMessageUser = {
-                message: 'ok',
+                message: this.messagesUser[this.getRandomInt(1, 6)].message,
                 status: 'received'
             }
-            const addMessageUser = setTimeout(() => {
-            this.contacts[activeIndex].messages.push(newMessageUser);
+            setTimeout(()=> {
+                this.contacts[activeIndex].messages.push(newMessageUser);
             }, 1000);
+        },
+        newArray(){
+            const findChat = this.search;
+
+            filteredArray = [
+                (this.contacts.filter((el)=>{
+                    return el.name.toUpperCase().includes(findChat.toUpperCase());
+                }))
+            ];
+            console.log(filteredArray)
+        },
+        getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
         }
     }
 }).mount('#app');

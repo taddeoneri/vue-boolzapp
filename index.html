@@ -38,8 +38,8 @@
                 </div>
                 <div class="box-left-search d-flex align-items-center">
                     <div class="input-group p-1">
-                        <span class="input-group-text bg-light" id="basic-addon1"><i class="fa-solid fa-magnifying-glass"></i></span>
-                        <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat" aria-label="Username" aria-describedby="basic-addon1">
+                        <span class="input-group-text bg-light"><i class="fa-solid fa-magnifying-glass"></i></span>
+                        <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat" v-model="search" @change="newArray()">
                       </div>
                 </div>
                 <div class="box-left-chat">
