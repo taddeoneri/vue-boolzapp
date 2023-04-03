@@ -53,10 +53,12 @@
     color: #b1b1b1;
     font-size: 1.5rem;
     padding: 0px 10px;
+    cursor: pointer;
 }
 .box-image i{
     color: #8edafc;
     font-size: 1.5rem;
+    cursor: pointer;
 }
 .box-left-notice .box-image{
     background-color: #ffffff;
@@ -81,6 +83,7 @@ p{
 .input-item i{
     font-size: 1.7rem;
     color: #6b7376;
+    cursor: pointer;
 }
 .box-left-chat .text p, .items p{
     color: #bababa;
