@@ -216,7 +216,6 @@ createApp({
             this.activeIndex = index;
         },
         addMessage(activeIndex){
-            console.log(this.newMex);
             if(this.newMex !== undefined && this.newMex.trim() !== ''){
                 const newMessage = {
                     message: this.newMex,
