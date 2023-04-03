@@ -39,11 +39,11 @@
                 <div class="box-left-search d-flex align-items-center">
                     <div class="input-group p-1">
                         <span class="input-group-text bg-light"><i class="fa-solid fa-magnifying-glass"></i></span>
-                        <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat" v-model="search" @change="newArray()">
+                        <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat" v-model="search" @keyup="newArray()">
                       </div>
                 </div>
                 <div class="box-left-chat">
-                    <div @click="selectChat(index)" v-for="(contact, index) in filteredArray" :key="contact.id" class="my-card d-flex justify-content-between px-4 py-2">
+                    <div @click="selectChat(index)" v-for="(contact, index) in contacts" :key="contact.id" class="my-card d-flex justify-content-between px-4 py-2">
                         <div class="d-flex">
                             <div class="box-image">
                                 <img :src="contact.avatar" :alt="contact.name">
