@@ -223,7 +223,7 @@ createApp({
             this.contacts[activeIndex].messages.push(newMessage);
             this.newMex = '';
             const newMessageUser = {
-                message: this.messagesUser[this.getRandomInt(1, 6)].message,
+                message: this.messagesUser[this.getRandomInt(0, 5)].message,
                 status: 'received'
             }
             setTimeout(()=> {
@@ -232,16 +232,12 @@ createApp({
         },
         newArray(){
             const findChat = this.search;
-
             filteredArray = [
                 (this.contacts.filter((el)=>{
                     return el.name.toUpperCase().includes(findChat.toUpperCase());
                 }))
             ];
             console.log(filteredArray)
-        },
-        getRandomInt(min, max) {
-            return Math.floor(Math.random() * (max - min + 1)) + min;
         }
     }
 }).mount('#app');
