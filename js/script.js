@@ -235,6 +235,8 @@ createApp({
             for(let i = 0; i < this.contacts.length; i++){
                 if(!(this.contacts[i].name.toUpperCase().includes(findChat.toUpperCase()))){
                     this.contacts[i].visible = false;
+                }else{
+                    this.contacts[i].visible = true;
                 }
             }
         }
