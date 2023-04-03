@@ -216,19 +216,22 @@ createApp({
             this.activeIndex = index;
         },
         addMessage(activeIndex){
-            const newMessage = {
-                message: this.newMex,
-                status: 'sent'
+            console.log(this.newMex);
+            if(this.newMex !== undefined && this.newMex.trim() !== ''){
+                const newMessage = {
+                    message: this.newMex,
+                    status: 'sent'
+                }
+                this.contacts[activeIndex].messages.push(newMessage);
+                this.newMex = '';
+                const newMessageUser = {
+                    message: this.messagesUser[this.getRandomInt(0, 5)].message,
+                    status: 'received'
+                }
+                setTimeout(()=> {
+                    this.contacts[activeIndex].messages.push(newMessageUser);
+                }, 1000);
             }
-            this.contacts[activeIndex].messages.push(newMessage);
-            this.newMex = '';
-            const newMessageUser = {
-                message: this.messagesUser[this.getRandomInt(0, 5)].message,
-                status: 'received'
-            }
-            setTimeout(()=> {
-                this.contacts[activeIndex].messages.push(newMessageUser);
-            }, 1000);
         },
         newArray(){
             const findChat = this.search;
