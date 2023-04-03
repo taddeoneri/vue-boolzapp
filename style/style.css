@@ -115,3 +115,10 @@ p{
 .my-message{
     background-color: #d5f9ba;
 }
+.dropdown{
+    position: absolute;
+    right: 10px;
+}
+.messageHover{
+    background-color: #6b7376;
+}

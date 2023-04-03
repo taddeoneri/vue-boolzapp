@@ -78,11 +78,19 @@
                 </div>
                 <div class="box-right-message">
                     <div v-for="(contact, index) in contacts" :key="contact.id" :class="activeIndex === index ? 'container-message' : 'd-none'">
-                        <div v-for="message in contact.messages" :class="message.status === 'sent' ? 'd-flex justify-content-end' : ''">
-                            <div v-if="activeIndex === index" :class="message.status === 'sent' ? 'my-message' : 'message-user'" class="d-flex align-items-center">
+                        <div v-for="message in contact.messages" :class="message.status === 'sent' ? 'd-flex justify-content-end' : ''"  @mouseover="hover = true" @mouseleave="hover = false">
+                            <div v-if="activeIndex === index" :class="message.status === 'sent' ? 'my-message' : 'message-user'" class="d-flex align-items-center position-relative">
                                 {{message.message}}
                             </div>
                         </div>
+                        <div class="dropdown" :class="hover === true ? '' : 'd-none'">
+                            <button type="button" @click="flag = true"><i class="fa-solid fa-angle-down"></i></button>
+                            <ul class="dropdown-menu" :class="{'d-block': flag}">
+                              <li><a class="dropdown-item" href="#">Action</a></li>
+                              <li><a class="dropdown-item" href="#">Another action</a></li>
+                              <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                          </div>
                     </div>
                 </div>
                 <div class="box-right-input d-flex align-items-center justify-content-between">

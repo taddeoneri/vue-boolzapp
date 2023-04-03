@@ -178,7 +178,8 @@ createApp({
             ],
             activeIndex: 0,
             newMessage: '',
-            filteredArray: [],
+            flag: false,
+            hover: false,
             messagesUser: [
                 {
                     message: 'Va bene',
