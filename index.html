@@ -43,7 +43,7 @@
                       </div>
                 </div>
                 <div class="box-left-chat">
-                    <div @click="selectChat(index)" v-for="(contact, index) in contacts" :key="contact.id" class="my-card d-flex justify-content-between px-4 py-2">
+                    <div @click="selectChat(index)" v-for="(contact, index) in contacts" :key="contact.id" :class="contact.visible === true ? '' : 'd-none'" class="my-card d-flex justify-content-between px-4 py-2">
                         <div class="d-flex">
                             <div class="box-image">
                                 <img :src="contact.avatar" :alt="contact.name">

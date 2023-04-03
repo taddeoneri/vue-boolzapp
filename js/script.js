@@ -232,13 +232,11 @@ createApp({
         },
         newArray(){
             const findChat = this.search;
-            this.filteredArray = [];
             for(let i = 0; i < this.contacts.length; i++){
-                if(this.contacts[i].name.toUpperCase().includes(findChat.toUpperCase())){
-                    this.filteredArray.push(this.contacts[i]);
+                if(!(this.contacts[i].name.toUpperCase().includes(findChat.toUpperCase()))){
+                    this.contacts[i].visible = false;
                 }
             }
-            console.log(this.filteredArray)
         }
     }
 }).mount('#app');
