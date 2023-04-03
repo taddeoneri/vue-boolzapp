@@ -176,12 +176,28 @@ createApp({
                     ],
                 }
             ],
-            activeIndex: 0
+            activeIndex: 0,
+            newMessage: ''
         }
     },
     methods: {
         selectChat(index){
             this.activeIndex = index;
+        },
+        addMessage(activeIndex){
+            const newMessage = {
+                message: this.newMex,
+                status: 'sent'
+            };
+            this.contacts[activeIndex].messages.push(newMessage);
+            this.newMex = '';
+            const newMessageUser = {
+                message: 'ok',
+                status: 'received'
+            };
+            setTimeout(()=> {
+                this.contacts[activeIndex].messages.push(newMessageUser);
+            }), 2000;
         }
     }
 }).mount('#app');
