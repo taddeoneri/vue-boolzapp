@@ -1,14 +1,17 @@
-.box{
+#app{
     width: 100vw;
     height: 100vh;
+    background-image: linear-gradient(to bottom,#009688 0px, #009688 16vh, #dddbd1 16vh, #d2dbdc 100%);
+}
+.box{
+    width: calc(100vw - 200px);
+    height: calc(100vh - 50px);
 }
 .box-left{
     width: 35%;
-    height: 100vh;
 }
 .box-right{
     width: 65%;
-    height: 100vh;
 }
 .box-left-me, .box-right-user{
     height: 70px;
