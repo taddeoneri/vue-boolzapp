@@ -80,7 +80,7 @@
                 <div class="box-right-message">
                     <div v-for="(contact, index) in contacts" :key="contact.id" :class="activeIndex === index ? 'container-message' : 'd-none'">
                         <div v-for="(message, indexMsg) in contact.messages" :class="message.status === 'sent' ? 'justify-content-end' : ''" class="d-flex" ref="msg"> <!-- @mouseleave="hover = false" -->
-                            <div :class="message.status === 'sent' ? 'my-message' : 'message-user'" class="d-flex align-items-center justify-content-between" @mouseover="hoverMsg(indexMsg)" @mouseleave="hover = false">
+                            <div :class="message.status === 'sent' ? 'my-message' : 'message-user'" class="d-flex align-items-center justify-content-between" @mouseover="hoverMsg(indexMsg)" @mouseleave="hover = false, flag = false">
                                 {{message.message}}
                                 {{message.date}}
                                 <div v-if="activeMsg === indexMsg" class="dropdown" :class="hover ? '' : 'd-none'">
@@ -99,18 +99,18 @@
                         <i class="fa-regular fa-face-smile"></i>
                     </div>
                     <div class="input-message d-flex align-items-center">
-                        <input type="text" class="form-control" id="message" placeholder="Scrivi un messaggio" v-model="newMex" @keyup.enter="addMessage(activeIndex)">
-                        <!-- <i class="fa-solid fa-paper-plane-top"></i> -->
+                        <input type="text" class="form-control" id="message" placeholder="Scrivi un messaggio" v-model="newMex" @keyup="change" @keyup.enter="addMessage(activeIndex)">
                     </div>
                     <div class="input-item d-flex align-items-center justify-content-center">
-                        <i @click="addMessage(activeIndex)" class="fa-solid fa-microphone"></i>
+                        <i :class="changeItem ? 'd-none' : 'fa-solid fa-microphone'"></i>
+                        <i @click="addMessage(activeIndex)" :class="changeItem ? 'fa-solid fa-paper-plane' : 'd-none'"></i>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/vue@3.2.47/dist/vue.global.js"></script>
     <script src="./js/script.js"></script>
 </body>
 </html>

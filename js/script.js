@@ -181,6 +181,7 @@ createApp({
             newMessage: '',
             flag: false,
             hover: false,
+            changeItem: false,
             messagesUser: [
                 {
                     message: 'Va bene',
@@ -237,6 +238,7 @@ createApp({
                         this.$refs.msg[this.$refs.msg.length - 1].scrollIntoView();
                     });
                 }, 1000);
+                this.changeItem = false;
             }
         },
         newArray(){
@@ -258,11 +260,17 @@ createApp({
             }else{
                 this.flag = true;
             }
-            this.activeIndex = index;
         },
         hoverMsg(indexMsg){
             this.hover = true;
             this.activeMsg = indexMsg;
+        },
+        change(){
+            if(this.newMex !== undefined && this.newMex.trim() !== ''){
+                this.changeItem = true;
+            }else{
+                this.changeItem = false;
+            }
         }
     }
 }).mount('#app');
