@@ -239,6 +239,8 @@ createApp({
                     });
                 }, 1000);
                 this.changeItem = false;
+                this.flag = false;
+                this.hover = false;
             }
         },
         newArray(){
