@@ -79,13 +79,13 @@
                 </div>
                 <div class="box-right-message">
                     <div v-for="(contact, index) in contacts" :key="contact.id" :class="activeIndex === index ? 'container-message' : 'd-none'">
-                        <div v-for="(message, indexMsg) in contact.messages" :class="message.status === 'sent' ? 'justify-content-end' : ''" class="d-flex" @mouseover="hover = true" @mouseleave="hover = false" ref="msg"> <!-- @mouseleave="hover = false" -->
-                            <div :class="message.status === 'sent' ? 'my-message' : 'message-user'" class="d-flex align-items-center justify-content-between">
+                        <div v-for="(message, indexMsg) in contact.messages" :class="message.status === 'sent' ? 'justify-content-end' : ''" class="d-flex" ref="msg"> <!-- @mouseleave="hover = false" -->
+                            <div :class="message.status === 'sent' ? 'my-message' : 'message-user'" class="d-flex align-items-center justify-content-between" @mouseover="hoverMsg(indexMsg)" @mouseleave="hover = false">
                                 {{message.message}}
                                 {{message.date}}
-                                <div class="dropdown" :class="hover === true ? '' : 'd-none'">
-                                    <span @mouseover="flag = true"><i class="fa-solid fa-angle-down"></i></span>
-                                    <ul class="dropdown-menu end-0" :class="{'d-block': flag}">
+                                <div v-if="activeMsg === indexMsg" class="dropdown" :class="hover ? '' : 'd-none'">
+                                    <span @click="flagMsg" data-bs-toggle="dropdown"><i class="fa-solid fa-angle-down"></i></span>
+                                    <ul class="dropdown-menu end-0" :class="flag ? 'd-block' : 'd-none'" >
                                       <li><a class="dropdown-item" @click="">Message info</a></li>
                                       <li><a class="dropdown-item" @click="removeMessage(indexMsg)">Delete message</a></li>
                                     </ul>

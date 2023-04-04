@@ -177,6 +177,7 @@ createApp({
                 }
             ],
             activeIndex: 0,
+            activeMsg: 0,
             newMessage: '',
             flag: false,
             hover: false,
@@ -250,6 +251,18 @@ createApp({
         },
         removeMessage(index){
             this.contacts[this.activeIndex].messages.splice(index, 1);
+        },
+        flagMsg(){
+            if(this.flag === true){
+                this.flag = false;
+            }else{
+                this.flag = true;
+            }
+            this.activeIndex = index;
+        },
+        hoverMsg(indexMsg){
+            this.hover = true;
+            this.activeMsg = indexMsg;
         }
     }
 }).mount('#app');
