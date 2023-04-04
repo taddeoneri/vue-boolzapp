@@ -255,6 +255,8 @@ createApp({
         },
         removeMessage(index){
             this.contacts[this.activeIndex].messages.splice(index, 1);
+            this.flag = false;
+            this.hover = false;
         },
         flagMsg(){
             if(this.flag === true){
