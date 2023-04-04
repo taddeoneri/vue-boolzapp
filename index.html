@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
     <link rel="stylesheet" href="./style/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.3.0/build/global/luxon.min.js"></script>
     <title>Boolzapp</title>
 </head>
 <body>
@@ -78,19 +79,19 @@
                 </div>
                 <div class="box-right-message">
                     <div v-for="(contact, index) in contacts" :key="contact.id" :class="activeIndex === index ? 'container-message' : 'd-none'">
-                        <div v-for="message in contact.messages" :class="message.status === 'sent' ? 'd-flex justify-content-end' : ''"  @mouseover="hover = true" @mouseleave="hover = false">
-                            <div v-if="activeIndex === index" :class="message.status === 'sent' ? 'my-message' : 'message-user'" class="d-flex align-items-center position-relative">
+                        <div v-for="(message, indexMsg) in contact.messages" :class="message.status === 'sent' ? 'justify-content-end' : ''" class="d-flex" @mouseover="hover = true" @mouseleave="hover = false" ref="msg"> <!-- @mouseleave="hover = false" -->
+                            <div :class="message.status === 'sent' ? 'my-message' : 'message-user'" class="d-flex align-items-center justify-content-between">
                                 {{message.message}}
+                                {{message.date}}
+                                <div class="dropdown" :class="hover === true ? '' : 'd-none'">
+                                    <span @mouseover="flag = true"><i class="fa-solid fa-angle-down"></i></span>
+                                    <ul class="dropdown-menu end-0" :class="{'d-block': flag}">
+                                      <li><a class="dropdown-item" @click="">Message info</a></li>
+                                      <li><a class="dropdown-item" @click="removeMessage(indexMsg)">Delete message</a></li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                        <div class="dropdown" :class="hover === true ? '' : 'd-none'">
-                            <button type="button" @click="flag = true"><i class="fa-solid fa-angle-down"></i></button>
-                            <ul class="dropdown-menu" :class="{'d-block': flag}">
-                              <li><a class="dropdown-item" href="#">Action</a></li>
-                              <li><a class="dropdown-item" href="#">Another action</a></li>
-                              <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                          </div>
                     </div>
                 </div>
                 <div class="box-right-input d-flex align-items-center justify-content-between">
@@ -108,7 +109,7 @@
             </div>
         </div>
     </div>
-
+    
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="./js/script.js"></script>
 </body>
