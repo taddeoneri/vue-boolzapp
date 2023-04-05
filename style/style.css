@@ -110,7 +110,7 @@ p{
     width: 40%;
     border-radius: 10px;
     margin: 5px 0px;
-    padding: 13px;
+    padding: 5px;
     cursor: pointer;
 }
 .message-user{
@@ -120,11 +120,15 @@ p{
     background-color: #d5f9ba;
 }
 .messageHover{
-    background-color: #6b7376;
+    background-color: #e8e8e8;
 }
 .dropdown ul li{
     cursor: pointer;
 }
 span i{
     opacity: .6;
+}
+.time-message{
+    font-size: 0.6rem;
+    color: #a0a0a0;
 }

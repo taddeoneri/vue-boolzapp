@@ -11,7 +11,6 @@
     <title>Boolzapp</title>
 </head>
 <body>
-
     <div id="app" class="d-flex align-items-center justify-content-center">
         <div class="box d-flex">
             <div class="box-left">
@@ -20,7 +19,7 @@
                         <div class="box-image">
                             <img src="./img/avatar_io.jpg" alt="Me">
                         </div>
-                        <p class="px-2">Sofia</p>
+                        <p class="px-2">Nome Utente</p>
                     </div>
                     <div class="items">
                         <i class="fa-solid fa-circle-notch"></i>
@@ -44,7 +43,7 @@
                       </div>
                 </div>
                 <div class="box-left-chat">
-                    <div @click="selectChat(index)" v-for="(contact, index) in contacts" :key="contact.id" :class="contact.visible ? '' : 'd-none'" class="my-card d-flex justify-content-between px-4 py-2">
+                    <div @click="selectChat(index)" v-for="(contact, index) in contacts" :key="contact.id" :class="contact.visible ? '' : 'd-none', activeIndex === index ? 'messageHover' : ''" class="my-card d-flex justify-content-between px-4 py-2">
                         <div class="d-flex">
                             <div class="box-image">
                                 <img :src="contact.avatar" :alt="contact.name">
@@ -80,16 +79,16 @@
                 <div class="box-right-message">
                     <div v-for="(contact, index) in contacts" :key="contact.id" :class="activeIndex === index ? 'container-message' : 'd-none'">
                         <div v-for="(message, indexMsg) in contact.messages" :class="message.status === 'sent' ? 'justify-content-end' : ''" class="d-flex" ref="msg"> <!-- @mouseleave="hover = false" -->
-                            <div :class="message.status === 'sent' ? 'my-message' : 'message-user'" class="d-flex align-items-center justify-content-between" @mouseover="hoverMsg(indexMsg)" @mouseleave="hover = false, flag = false">
-                                {{message.message}}
-                                {{message.date}}
+                            <div :class="message.status === 'sent' ? 'my-message' : 'message-user'" class="d-flex align-items-center justify-content-between position-relative" @mouseover="hoverMsg(indexMsg)" @mouseleave="hover = false, flag = false">
+                                <p class="py-2 ps-2">{{message.message}}</p>
                                 <div v-if="activeMsg === indexMsg" class="dropdown" :class="hover ? '' : 'd-none'">
                                     <span @click="flagMsg" data-bs-toggle="dropdown"><i class="fa-solid fa-angle-down"></i></span>
                                     <ul class="dropdown-menu end-0" :class="flag ? 'd-block' : 'd-none'" >
-                                      <li><a class="dropdown-item" @click="">Message info</a></li>
-                                      <li><a class="dropdown-item" @click="removeMessage(indexMsg)">Delete message</a></li>
+                                        <li><a class="dropdown-item" @click="">Message info</a></li>
+                                        <li><a class="dropdown-item" @click="removeMessage(indexMsg)">Delete message</a></li>
                                     </ul>
                                 </div>
+                                <p class="time-message position-absolute bottom-0 end-0 p-1">{{message.time}}</p>
                             </div>
                         </div>
                     </div>
